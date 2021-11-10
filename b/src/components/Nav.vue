@@ -1,15 +1,15 @@
 <template>
   <nav>
-    <h1 class="mark"><img src="../assets/mark.svg" alt="U-NEXT"></h1>
+    <h1 class="mark"><img src="../assets/horizontal.svg" alt="U-NEXT"></h1>
 
     <ul class="globalNav">
-      <li class="globalNav__item">
-        <a href="#">
+      <li class="globalNav__item"><details>
+        <summary>
           <span class="material-icons-round">
             play_circle_filled
           </span>
           <p>ビデオ</p>
-        </a>
+        </summary>
 
         <ul>
           <li><a href="#">ランキング</a></li>
@@ -25,31 +25,32 @@
           <li><a href="#">バラエティ</a></li>
           <li><a href="#">その他♡</a></li>
         </ul>
-      </li>
+      </details></li>
 
-      <li class="globalNav__item">
-        <a href="#">
+      <li class="globalNav__item"><details>
+        <summary>
           <span class="material-icons-round">
             menu_book
           </span>
           <p>ブック</p>
-        </a>
+        </summary>
 
         <ul>
+          <li><a href="#">毎日無料</a></li>
           <li><a href="#">雑誌 読み放題</a></li>
           <li><a href="#">マンガ</a></li>
           <li><a href="#">ラノベ</a></li>
           <li><a href="#">書籍</a></li>
         </ul>
-      </li>
+      </details></li>
 
-      <li class="globalNav__item">
-        <a href="#">
+      <li class="globalNav__item"><details>
+        <summary>
           <span class="material-icons-round">
             music_note
           </span>
           <p>ミュージック</p>
-        </a>
+        </summary>
 
         <ul>
           <li><a href="#">J-POP</a></li>
@@ -62,7 +63,8 @@
           <li><a href="#">クラシック</a></li>
           <li><a href="#">SMART USEN</a></li>
         </ul>
-      </li>
+      </details></li>
+
 
 
     </ul>
@@ -82,7 +84,7 @@ export default {
 <style scoped lang="scss">
 @use "../index.scss" as *;
 
-$NAV_WIDTH: 64px;
+$NAV_WIDTH: 240px;
 
 nav {
   width: $NAV_WIDTH;
@@ -95,67 +97,75 @@ nav {
   display: flex;
   flex-direction: column;
   place-items: center;
-  justify-content: center;
 }
 
 .mark {
   position: fixed;
-  top: 12px;
-  left: 12px;
+  top: 32px;
+  left: 36px;
+  width: 160px;
+  img {
+    width: 100%;
+  }
 }
 
 .globalNav {
-  margin-top: 10vh;
+  margin-top: 160px;
   .material-icons-round {
     font-size: 32px;
   }
 }
 .globalNav__item {
-  position: relative;
-  transition: .1s ease-out;
-
-  > a {
+  details {
+    position: relative;
+    &::after {
+      position: absolute;
+      top: 6px;
+      right:16px;
+      font-size: 24px;
+      content: "expand_more";
+      font-family: 'Material Icons Round';
+    }
+    &[open]::after {
+      content: "expand_less";
+    }
+  }
+  summary {
     text-decoration: none;
     color: color(main);
     width: $NAV_WIDTH;
-    height: $NAV_WIDTH;
+    height: 48px;
+    padding-inline-start: 16px;
     display: flex;
-    flex-direction: column;
     place-items: center;
-    justify-content: center;
+    cursor: pointer;
+    &:hover {
+      background: color(main,.1);
+    }
     p {
-      font-size: 10px;
-      text-align: center;
+      font-size: 16px;
       font-weight: 600;
+      margin-left: 12px;
     }
   }
 
   ul {
-    display: none;
-    position: absolute;
-    top: -40%;
-    left: $NAV_WIDTH;
-    width: 160px;
-    background: color(main,.1);
-    > li {
+    background: color(main,.2);
+    width: 100%;
+
+    li {
       width: 100%;
     }
-    > li > a {
-      transition: .2s ease;
+    a {
       display: block;
       width: 100%;
+      line-height: 40px;
+      padding-left: 28px;
       text-decoration: none;
-      padding: 8px;
       color: color(main);
       &:hover {
         background: color(main,.1);
       }
-    }
-  }
-  &:hover {
-    background: color(main,.1);
-    ul {
-      display: block;
     }
   }
 }

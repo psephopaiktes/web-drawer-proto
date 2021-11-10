@@ -105,7 +105,6 @@ nav {
 }
 
 .globalNav {
-  margin-top: 10vh;
   .material-icons-round {
     font-size: 32px;
   }

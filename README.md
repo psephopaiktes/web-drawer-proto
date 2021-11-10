@@ -1,3 +1,5 @@
 # web-drawer-proto
 
-* [A](https://psephopaiktes.github.io/web-drawer-proto/a/dist/index.html)
+* [A](https://psephopaiktes.github.io/web-drawer-proto/a/dist/)
+* [B](https://psephopaiktes.github.io/web-drawer-proto/b/dist/)
+* [C](https://psephopaiktes.github.io/web-drawer-proto/c/dist/)
